@@ -41,3 +41,10 @@ unaligned Groups in their spheres of influence.
 * `brink/mapview.py`, `brink/charts.py`, `brink/gui.py`, `brink/guide.py` - the window
 * `test_model.py` - `python3 -m unittest test_model`
 * `scenarios/` - where Save setup / Save current state put JSON scenarios by default
+
+## Windows and macOS
+
+The same code runs on Windows and macOS. To install it there:
+
+* **Windows:** see [WINDOWS.md](WINDOWS.md) (`install.ps1`).
+* **macOS:** see [MACOS.md](MACOS.md) (`install-macos.sh`).

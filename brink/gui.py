@@ -5,6 +5,7 @@ import copy
 import csv
 import html
 import os
+import sys
 
 from PyQt6.QtCore import QThread, Qt, QTimer, pyqtSignal
 from PyQt6.QtGui import QAction, QColor, QFont, QIcon, QKeySequence
@@ -22,7 +23,17 @@ from .mapview import MapView
 from .model import (ERAS, era_of, running_stats, SETTING_INFO, STRATEGIES, STRATEGY_ORDER, Settings, World, run_many, strategy_info)
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG = os.path.join(os.path.expanduser("~"), ".config", "brink")
+def _config_dir() -> str:
+    """Config folder: %APPDATA% / %LOCALAPPDATA% on Windows, ~/Library on macOS,
+    the usual XDG folder on Linux."""
+    if os.name == "nt":
+        return os.path.join(os.environ.get("APPDATA") or os.path.expanduser("~"), "Brink")
+    if sys.platform == "darwin":
+        return os.path.join(os.path.expanduser("~"), "Library", "Application Support", "Brink")
+    return os.path.join(os.path.expanduser("~"), ".config", "brink")
+
+
+CONFIG = _config_dir()
 
 
 def _pct(v):
