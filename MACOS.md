@@ -42,4 +42,4 @@ Settings are kept in `~/Library/Application Support/Brink`.
 
 To remove it: delete the folder, `~/Applications/Brink.app` and `~/.local/bin/brink`.
 
-If something doesn't work, please write to zklaas@yahoo.ca.
+If something doesn't work, please write to zklaastest-testing@yahoo.com.

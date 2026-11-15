@@ -40,4 +40,4 @@ Settings are kept in `%APPDATA%\Brink`.
 To remove it: delete the folder, the Start-menu entry (Brink) and
 `%LOCALAPPDATA%\Programs\Brink`.
 
-If something doesn't work, please write to zklaas@yahoo.ca.
+If something doesn't work, please write to zklaastest-testing@yahoo.com.
