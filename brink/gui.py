@@ -23,6 +23,10 @@ from .mapview import MapView
 from .model import (ERAS, era_of, running_stats, SETTING_INFO, STRATEGIES, STRATEGY_ORDER, Settings, World, run_many, strategy_info)
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Saved scenarios: beside the program when run from its folder; in Documents/Brink
+# for the downloaded (packaged) program, whose own folder is read-only.
+SCENARIO_DIR = (os.path.join(os.path.expanduser("~"), "Documents", "Brink")
+                if getattr(sys, "frozen", False) else SCENARIO_DIR)
 def _config_dir() -> str:
     """Config folder: %APPDATA% / %LOCALAPPDATA% on Windows, ~/Library on macOS,
     the usual XDG folder on Linux."""
@@ -578,7 +582,7 @@ class MainWindow(QMainWindow):
 
     def _open(self):
         os.makedirs(CONFIG, exist_ok=True)
-        path, _ = QFileDialog.getOpenFileName(self, "Open scenario", os.path.join(HERE, "scenarios"),
+        path, _ = QFileDialog.getOpenFileName(self, "Open scenario", SCENARIO_DIR,
                                               "Brink scenarios (*.json)")
         if not path:
             return
@@ -649,8 +653,8 @@ class MainWindow(QMainWindow):
         self._save_dialog(sc)
 
     def _save_dialog(self, sc):
-        os.makedirs(os.path.join(HERE, "scenarios"), exist_ok=True)
-        default = os.path.join(HERE, "scenarios", "".join(c if c.isalnum() else "-" for c in sc.get("name", "scenario")).strip("-").lower() + ".json")
+        os.makedirs(SCENARIO_DIR, exist_ok=True)
+        default = os.path.join(SCENARIO_DIR, "".join(c if c.isalnum() else "-" for c in sc.get("name", "scenario")).strip("-").lower() + ".json")
         path, _ = QFileDialog.getSaveFileName(self, "Save scenario", default, "Brink scenarios (*.json)")
         if not path:
             return

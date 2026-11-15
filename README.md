@@ -5,6 +5,18 @@ A balance-of-power simulation. The world is made of **Regions** held by **Groups
 Regions matters and the ratio of marshaled Power decides who wins and what proportion of Power the losers
 lose), or they join **Alliances** to become a pole, to balance between poles, or to bandwagon with one.
 
+## Download
+
+Ready-to-run downloads (executable programs), with nothing else to install:
+
+* **Windows:** [Brink-Setup-Windows.exe](https://github.com/zklaas/brink/releases/latest/download/Brink-Setup-Windows.exe)
+* **macOS** (Apple silicon): [Brink-macOS.dmg](https://github.com/zklaas/brink/releases/latest/download/Brink-macOS.dmg)
+* **Linux:** [Brink-Linux-x86_64.AppImage](https://github.com/zklaas/brink/releases/latest/download/Brink-Linux-x86_64.AppImage)
+
+The first time, Windows or macOS asks before opening it; the
+[release page](https://github.com/zklaas/brink/releases/latest) says what to click.
+To install from the source code at the command line instead, see below.
+
     ./install.sh        # puts `brink` in ~/.local/bin and adds Brink (with its icon) to the app grid
     brink               # the window
     brink strategies    # what each strategy does
